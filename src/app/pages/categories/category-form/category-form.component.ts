@@ -41,6 +41,21 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
     this.setPageTitle();
   }
 
+  submitForm(){
+    console.log('Entrei')
+    //quando o usuario clicar no botao de salvar
+    this.submittingForm = true;
+
+    //verificar se esta editando ou criando category
+    if(this.currentAction == 'new'){
+      this.createCategory()
+    }
+    else //currentAction == 'edit'
+    this.updateCategory()
+  }
+
+
+
   //Private Methods
   private setCurrentAction(){
     //verificar a rota que chegou, para saber se está editando ou adicionando
@@ -84,5 +99,47 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
       
   }
 
+  private createCategory(){
+    //vai precisar criar um objeto do tipo category e enviar atraves do categoryService
+    const category: Category = Object.assign(new Category(), this.categoryForm.value)
 
+    this.categoryService.create(category)
+      .subscribe(
+        category => this.actionsForSuccess(category),
+        error => this.actionsForError(error)
+      )
+
+  }
+
+  private updateCategory(){
+    const category: Category = Object.assign(new Category(), this.categoryForm.value)
+
+    this.categoryService.update(category)
+    .subscribe(
+      category => this.actionsForSuccess(category),
+      error => this.actionsForError(error)
+    )
+  }
+
+  private actionsForSuccess(category: Category){
+    toastr.success("Solicitação processada com sucesso")
+
+    //forçar carregamento do componente;...sair do /new ir para / e voltar para /id/edit
+    this.router.navigateByUrl("categories", {skipLocationChange: true}) //sempre absoluta esse navigateByUrl site.com.br/ //skypLocationChange, nao armazena no historico do browser, para caso ele clique em voltar n de problema de ir para a rota
+    .then(
+        //redirecionando para o edit
+       () => this.router.navigate(['categories', category.id, 'edit'])
+    )
+  }
+
+  private actionsForError(error){
+    toastr.error("Ocorreu um erro ao processar a sua solicitação!")
+
+    this.submittingForm = false;
+
+    if(error.status === 422) //erro de api - geralmente algum campo esta faltando por exemplo
+      this.serverErrorMessages = JSON.parse(error._body).errors
+    else 
+      this.serverErrorMessages = ["Falha na comunicação com o servidor. Por favor, tente mais tarde."]
+  }
 }
