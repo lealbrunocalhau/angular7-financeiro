@@ -32,6 +32,7 @@
       <td>
         <strong>{{category.name}}</strong><br>
         <small>{{category.description}}</small>
+        <pre>{{category | json}}</pre>
       </td>
       <td>
         <a [routerLink]="[category.id, 'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>

@@ -35,6 +35,7 @@
         <strong>{{entry.name}}</strong><br>
         <small class="text-sucess">{{entry.date}}</small><br>
         <small *ngIf="entry.description">{{entry.description}}</small>
+        <pre>{{entry | json}}</pre>
       </td>
       <td>
         {{entry.category.name}}

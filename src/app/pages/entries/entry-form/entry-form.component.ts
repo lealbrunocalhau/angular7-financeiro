@@ -22,11 +22,11 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   //vai me dizer se estou editando ou criando abaixo
   currentAction: string;
   entryForm: FormGroup;
-  pageTitle: string;
-  serverErrorMessages: string[] = null;
-  submittingForm: boolean = false;
   entry: Entry = new Entry();
   categories: Array<Category>
+  pageTitle: string;
+  submittingForm: boolean = false;
+  serverErrorMessages: string[] = null;
 
   imaskConfig = {
     mask: Number,
@@ -71,7 +71,6 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   }
 
   submitForm(){
-    console.log('Entrei')
     //quando o usuario clicar no botao de salvar
     this.submittingForm = true;
 
