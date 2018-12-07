@@ -13,6 +13,4 @@ export class CategoryService extends BaseResourceService<Category>{
     super("api/categories", injector, Category.fromJson )
    }
 
-
-  
 }
