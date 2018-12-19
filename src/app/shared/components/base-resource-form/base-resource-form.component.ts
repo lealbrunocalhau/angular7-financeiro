@@ -124,7 +124,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
     )
   }
 
-     private actionsForSuccess(resource: T){
+  protected actionsForSuccess(resource: T){
     toastr.success("Solicitação processada com sucesso")
 
     const baseComponentPath: string =  this.route.snapshot.parent.url[0].path

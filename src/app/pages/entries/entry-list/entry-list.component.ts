@@ -10,7 +10,8 @@ import { element } from 'protractor';
 })
 export class EntryListComponent implements OnInit {
 
-  entries: Entry[] = [];
+  
+ entries : Entry[] = [];
   constructor(private entryService: EntryService) { }
 
   ngOnInit() {
