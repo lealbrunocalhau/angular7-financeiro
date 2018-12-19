@@ -124,11 +124,12 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
   private actionsForSuccess(category: Category){
     toastr.success("Solicitação processada com sucesso")
 
+    const baseComponentPath: string =  this.route.snapshot.parent.url[0].path
     //forçar carregamento do componente;...sair do /new ir para / e voltar para /id/edit
-    this.router.navigateByUrl("categories", {skipLocationChange: true}) //sempre absoluta esse navigateByUrl site.com.br/ //skypLocationChange, nao armazena no historico do browser, para caso ele clique em voltar n de problema de ir para a rota
+    this.router.navigateByUrl(baseComponentPath, {skipLocationChange: true}) //sempre absoluta esse navigateByUrl site.com.br/ //skypLocationChange, nao armazena no historico do browser, para caso ele clique em voltar n de problema de ir para a rota
     .then(
         //redirecionando para o edit
-       () => this.router.navigate(['categories', category.id, 'edit'])
+       () => this.router.navigate([baseComponentPath, resource.id, 'edit'])
     )
   }
 
