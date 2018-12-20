@@ -1,10 +1,6 @@
-<nav class="mb-5">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-    <li class="breadcrumb-item active">Lançamentos</li>
-  </ol>
-
-</nav>
+<app-bread-crumb
+  [items]="[{text: 'Lançamenots'}]"
+></app-bread-crumb>
 
 <div class="row mb-4">
   <div class="col-md">
@@ -35,7 +31,7 @@
         <strong>{{entry.name}}</strong><br>
         <small class="text-sucess">{{entry.date}}</small><br>
         <small *ngIf="entry.description">{{entry.description}}</small>
-        <pre>{{entry | json}}</pre>
+        <!-- <pre>{{entry | json}}</pre> -->
       </td>
       <td>
         {{entry.category.name}}
