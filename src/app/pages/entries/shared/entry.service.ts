@@ -15,10 +15,10 @@ import * as moment from "moment"
 })
 export class EntryService extends BaseResourceService<Entry> {
 
-  constructor( 
+  constructor(
     protected injector: Injector,
     private categoryService: CategoryService
-  ) { 
+  ) {
       super("api/entries", injector, Entry.fromJson)
     }
 
@@ -48,7 +48,7 @@ export class EntryService extends BaseResourceService<Entry> {
     // return this.categoryService.getById(entry.categoryId).pipe(
     //   flatMap(category => {
     //     entry.category = category
-        
+
     //     // return this.http.put(url, entry).pipe(
     //     //   catchError(this.handleError),
     //     //   map(()=> entry)
@@ -57,7 +57,7 @@ export class EntryService extends BaseResourceService<Entry> {
     //     return super.update(entry)
     //   })
     // )
-    
+
   }
 
   getByMonthAndYear(month: number, year: number): Observable<Entry[]> {
@@ -81,9 +81,9 @@ export class EntryService extends BaseResourceService<Entry> {
       return entries.filter(entry => {
         const entryDate = moment(entry.date, "DD/MM/YYYY")
         const monthMatches = entryDate.month() + 1 == month
-        const yearMatches = entryDate.year() == year        
+        const yearMatches = entryDate.year() == year
 
-        if(monthMatches && yearMatches) 
+        if(monthMatches && yearMatches)
           return entry
       })
   }

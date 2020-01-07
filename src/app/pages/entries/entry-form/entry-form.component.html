@@ -4,10 +4,10 @@
 
 <app-page-header [page-title]="pageTitle" button-text="<< Voltar" button-link="/entries" button-class="btn-light"></app-page-header>
 
- 
+
 
   <form [formGroup]="resourceForm" (submit)="submitForm()">
-    
+
     <div class="card">
       <div class="card-header">
         Informações sobre o lançamento
@@ -22,9 +22,9 @@
 
               <select name="type" id="type" formControlName="type" class="form-control">
                 <option *ngFor="let option of typeOptions" [value]="option.value">{{option.text}}</option>
-                
+
               </select>
-                
+
               <app-form-field-error [form-control]="resourceForm.get('type')"></app-form-field-error>
 
           </div>
@@ -34,10 +34,10 @@
             <input type="text" class="form-control" id="name" formControlName="name">
 
             <app-form-field-error [form-control]="resourceForm.get('name')"></app-form-field-error>
-            
+
           </div>
 
-          
+
           <!-- amount -->
           <div class="form-group col-md-3">
               <label for="amount">Valor</label>
@@ -49,9 +49,9 @@
               </div>
 
              <app-form-field-error [form-control]="resourceForm.get('amount')"></app-form-field-error>
-  
+
           </div>
-           
+
            <!-- date -->
            <div class="form-group col-md-2">
               <label for="date">Data</label>
@@ -65,9 +65,9 @@
                [showButtonBar]="true">
 
              </p-calendar>
- 
+
              <app-form-field-error [form-control]="resourceForm.get('date')"></app-form-field-error>
-              
+
           </div>
 
         </div>
@@ -84,7 +84,7 @@
               </div>
 
               <app-form-field-error [form-control]="resourceForm.get('paid')"></app-form-field-error>
-              
+
           </div>
 
           <!-- categoryId -->
@@ -94,9 +94,9 @@
               <select name="categoryId" id="categoryId" formControlName="categoryId" class="form-control">
                 <option *ngFor="let category of categories"  [value]="category.id">{{category.name}}</option>
               </select>
-                
+
               <app-form-field-error [form-control]="resourceForm.get('categoryId')"></app-form-field-error>
-            
+
           </div>
           <!-- description -->
           <div class="form-group col-md-7">

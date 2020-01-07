@@ -9,7 +9,7 @@ import { CategoryFormComponent } from './category-form/category-form.component';
   declarations: [CategoryListComponent, CategoryFormComponent],
   imports: [
     SharedModule,
-    CategoriesRoutingModule    
+    CategoriesRoutingModule
   ]
 })
 export class CategoriesModule { }

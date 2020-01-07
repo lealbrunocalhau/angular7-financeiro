@@ -7,7 +7,7 @@ import { Entry } from "../../entries/shared/entry.model";
 import { EntryService } from "../../entries/shared/entry.service";
 
 import currencyFormatter from "currency-formatter"
-import { FILE } from 'dns';
+
 
 @Component({
   selector: 'app-reports',
@@ -101,11 +101,13 @@ export class ReportsComponent implements OnInit {
 
     this.categories.forEach(category => {
       //filtrando as entries por category e type
-      console.log('Dentro da funcao')
+      console.log('Dentro da funcao getChartData()-reports.component.ts')
+      console.log(category)
       console.log(this.entries)
       const filteredEntries = this.entries.filter(
         entry => (entry.categoryId == category.id) && (entry.type == entryType)
       )
+      console.log('Aqui: FilteredEntries antes reduce ', filteredEntries)
 
       //if found entries, then sum entreis amount and add do chartData
       if (filteredEntries.length > 0) {
@@ -117,7 +119,7 @@ export class ReportsComponent implements OnInit {
           categoryName: category.name,
           totalAmount: totalAmount
         })
-      } 
+      }
 
     })
 
@@ -131,7 +133,7 @@ export class ReportsComponent implements OnInit {
         }
       ]
     }
-  
+
   }
-    
+
   }

@@ -1,7 +1,7 @@
-import { Category } from "../../categories/shared/category.model";
-import { BaseResourceModel } from "../../../shared/models/base-resource.model";
+import { Category } from '../../categories/shared/category.model';
+import { BaseResourceModel } from '../../../shared/models/base-resource.model';
 
-export class Entry extends BaseResourceModel{
+export class Entry extends BaseResourceModel {
     constructor(
         public id?: number,
         public name?: string,
@@ -13,20 +13,20 @@ export class Entry extends BaseResourceModel{
         public categoryId?: number,
         public category?: Category
     ) {
-        super()
+        super();
      }
 
     static types = {
         expense: 'Despesa',
         revenue: 'Receita'
-    }
+    };
 
     static fromJson(jsonData: any): Entry {
-        return Object.assign(new Entry(), jsonData)
+        return Object.assign(new Entry(), jsonData);
     }
 
     get paidText(): string {
-        return this.paid ? 'Pago' : 'Pendente'
+        return this.paid ? 'Pago' : 'Pendente';
     }
 
 }
