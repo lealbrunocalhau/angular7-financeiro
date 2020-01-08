@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+    frontendangular2:
+        build: .
+        command: npm start
+        container_name: financeiro
+        working_dir: /app
+        ports:
+            - "4210:4210"
