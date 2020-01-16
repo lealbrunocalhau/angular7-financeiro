@@ -2,9 +2,11 @@ version: "3"
 
 services:
     frontendangular2:
-        build: .
-        command: npm start
+        build: ./angulardocker
+        command: bash -c "npm install --silent && npm start"
         container_name: financeiro
         working_dir: /app
+        volumes:
+          - .:/app
         ports:
             - "4210:4210"
