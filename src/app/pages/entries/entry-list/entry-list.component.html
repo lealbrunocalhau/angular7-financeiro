@@ -1,13 +1,8 @@
-<app-bread-crumb
-  [items]="[{text: 'Lançamentos'}]"
-></app-bread-crumb>
+<app-bread-crumb [items]="[{text: 'Lançamentos'}]"></app-bread-crumb>
 
 
-<app-page-header
-page-title="Lançamentos"
-button-text="+ Novo Lançamentos"
-button-link="new"
-button-class="btn-success"></app-page-header>
+<app-page-header page-title="Lançamentos" button-text="+ Novo Lançamentos" button-link="new" button-class="btn-success">
+</app-page-header>
 
 
 <table class="table table-hover">
@@ -44,8 +39,6 @@ button-class="btn-success"></app-page-header>
         <button (click)="deleteResource(entry)" class="btn btn-outline-danger btn-sm">Excluir</button>
       </td>
     </tr>
-
-
 
   </tbody>
 

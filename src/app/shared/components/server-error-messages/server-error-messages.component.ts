@@ -7,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ServerErrorMessagesComponent implements OnInit {
 
-  @Input('server-error-messages') serverErrorMessages: string[] = null
-  
+  // tslint:disable-next-line:no-input-rename
+  @Input('server-error-messages') serverErrorMessages: string[] = null;
+
   constructor() { }
 
   ngOnInit() {

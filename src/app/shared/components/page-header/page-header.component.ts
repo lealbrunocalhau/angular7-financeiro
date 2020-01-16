@@ -7,12 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PageHeaderComponent implements OnInit {
 
-  @Input('page-title') pageTitle: string
-  @Input('show-button') showButton: boolean = true
-  @Input('button-class') buttonClass: string
-  @Input('button-text') buttonText: string
-  @Input('button-link') buttonLink: string
-  
+  // tslint:disable-next-line:no-input-rename
+  @Input('page-title') pageTitle: string;
+  // tslint:disable-next-line:no-input-rename
+  @Input('show-button') showButton = true;
+  // tslint:disable-next-line:no-input-rename
+  @Input('button-class') buttonClass: string;
+  // tslint:disable-next-line:no-input-rename
+  @Input('button-text') buttonText: string;
+  // tslint:disable-next-line:no-input-rename
+  @Input('button-link') buttonLink: string;
+
   constructor() { }
 
   ngOnInit() {
