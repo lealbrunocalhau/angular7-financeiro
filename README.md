@@ -12,9 +12,9 @@ Para iniciar a aplicação, basta clonar o repositorio e ####caso tenha o DOCKER
 `docker-compose up`
 
 O sistema estará disponivel em:
-`http:localhost:4210`
+`http://localhost:4210`
 
 # Dados do Sistema
 
 Existem dados registrados em janeiro de 2020 para os relatorios.
-E em outubro, novembro e dezembro de 2019.
+E em novembro e dezembro de 2019.
