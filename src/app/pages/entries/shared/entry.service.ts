@@ -32,12 +32,38 @@ export class EntryService extends BaseResourceService<Entry> {
     return this.setCategoryAndSendToServer(entry, super.update.bind(this));
   }
 
-  getByMonthAndYear(month: number, year: number): Observable<Entry[]> {
+  getByMonthAndYear( month: number, year: number ): Observable<Entry[]> {
     return this.getAll().pipe(
-      map(entries => this.filterByMonthAndYear(entries, month, year))
+      map(entries =>
+        this.filterByMonthAndYear(
+          entries,
+          month,
+          year
+        )
+      )
     );
   }
 
+  private filterByMonthAndYear(entries: Entry[], month: number, year: number) {
+    return entries.filter(entry => {
+      // console.log('entrei 323232');
+      // console.log('Mes', month);
+      // console.log('Ano', year);
+      const entryDate = moment(entry.date, 'DD/MM/YYYY');
+      // console.log('EntryDate', entry.date);
+      // console.log('EntryDate - moment', moment(entry.date, 'DD/MM/YYYY'));
+      // console.log('EntryDate resposta', entryDate);
+      const monthMatches = entryDate.month() + 1 === +month;
+
+      // console.log('MonthMatchs', monthMatches);
+      const yearMatches = entryDate.year() === +year;
+
+      // console.log('YearMatchs', yearMatches);
+      if (monthMatches && yearMatches) {
+        return entry;
+      }
+    });
+  }
 
   private setCategoryAndSendToServer(entry: Entry, sendFn: any): Observable<Entry> {
     return this.categoryService.getById(entry.categoryId).pipe(
@@ -49,18 +75,7 @@ export class EntryService extends BaseResourceService<Entry> {
     );
   }
 
-  private filterByMonthAndYear(entries: Entry[], month: number, year: number) {
-    return entries.filter(entry => {
-      const entryDate = moment(entry.date, 'DD/MM/YYYY');
-      const monthMatches = entryDate.month() + 1 === +month;
 
-      const yearMatches = entryDate.year() === +year;
-
-      if (monthMatches && yearMatches) {
-          return entry;
-      }
-    });
-  }
 
 }
 

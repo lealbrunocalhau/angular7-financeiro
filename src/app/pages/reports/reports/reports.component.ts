@@ -61,7 +61,8 @@ export class ReportsComponent implements OnInit {
       alert('Você precisa escolher o mês e o ano para gerar os relatorios');
     } else {
 
-      this.entryService.getByMonthAndYear(month, year).subscribe(this.setValues.bind(this));
+      this.entryService.getByMonthAndYear(month, year)
+        .subscribe(this.setValues.bind(this));
     }
 
 

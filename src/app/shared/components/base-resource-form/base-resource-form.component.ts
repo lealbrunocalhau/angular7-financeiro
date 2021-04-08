@@ -12,8 +12,8 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
 
   // vai me dizer se estou editando ou criando abaixo
   currentAction: string;
-  resourceForm: FormGroup;
   pageTitle: string;
+  resourceForm: FormGroup;
   serverErrorMessages: string[] = null;
   submittingForm = false;
 

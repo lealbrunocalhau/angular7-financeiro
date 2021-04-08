@@ -22,6 +22,8 @@ export class Entry extends BaseResourceModel {
     };
 
     static fromJson(jsonData: any): Entry {
+      console.warn('Connect');
+      console.warn('Json Data :', jsonData);
         return Object.assign(new Entry(), jsonData);
     }
 

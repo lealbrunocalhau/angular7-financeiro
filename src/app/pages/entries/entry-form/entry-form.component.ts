@@ -14,7 +14,6 @@ import { EntryService } from '../shared/entry.service';
 })
 export class EntryFormComponent extends BaseResourceFormComponent<Entry> implements OnInit{
 
-  // vai me dizer se estou editando ou criando abaixo
   categories: Array<Category>;
   imaskConfig = {
     mask: Number,
